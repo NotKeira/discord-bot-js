@@ -1,0 +1,45 @@
+{
+  "token": "Replace This With Your Bot Token",
+
+  "cname": "Replace This With Your Bot's Name",
+
+  "clientID": "Replace This With Your Bot's Client ID",
+
+  "guildID": "Replace This With Your Bot's Main Guild ID",
+
+  "TenorAPI": "OPTIONAL - Replace this with your Tenor API",
+
+  "clientavatar": "Replace this with your clients profile picture.",
+
+  "mcsrv": "Replace this with your bot's Database SRV",
+
+  "creatorID": "Replace this with your User ID",
+
+  "staff": [
+    "Replace Me With Your Staff Role ID",
+    "Replace Me With Your Staff Role ID",
+    "Replace Me With Your Staff Role ID"
+  ],
+
+  "memberRole": "Insert Member Role Here",
+
+  "colorthemecode": "#FF5733",
+
+  "tickEmoji": "Replace This With Your Tick Emoji",
+
+  "banhammer": "Replace This With Your Ban Hammer Emoji",
+
+  "checklist": " Replace This With Your Checklist Emoji",
+
+  "auditlogs": "Replace This With Your Audit Log Channel ID",
+
+  "welcomechannel": "Replace This With Your Welcome Channel Channel ID",
+
+  "randomMessages_Cooldown": [
+    "Spamming isn't very skilled.",
+    "Spam Isn't cool man.",
+    "Why you sending so many messages? Did your mommy not give you enough attention?"
+  ],
+
+  "mainInvite": "Replace This With Your Main Servers Invite Link"
+}
