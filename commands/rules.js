@@ -5,7 +5,7 @@ const { tickEmoji } = require("../../botconfig/main.json");
 module.exports = {
 data: new SlashCommandBuilder()
   .setName("rules")
-  .setDescription("Send the rules embeds to a channel")
+  .setDescription("Send the rules embeds to a channel"),
   async execute (interaction) {
     const sName = Guild.name;
     const rulesSecOne_Embed = new EmbedBuilder()
