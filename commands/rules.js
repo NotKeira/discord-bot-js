@@ -1,27 +1,15 @@
 const Discord = require("discord.js");
-const { MessageEmbed, Guild } = require("discord.js");
-const main_json = require("../../botconfig/main.json");
-const tick = main_json.tickEmoji;
+const { SlashCommandBuilder, EmbedBuilder, Colors } = require("discord.js");
+const { tickEmoji } = require("../../botconfig/main.json");
 
 module.exports = {
-  name: "rules",
-  aliases: ["ToS", "CGs", "rulereminder"],
-  cooldowns: 1000,
-  description: "This Command Sends The Rules.",
-  usage: "<user>",
-  toggleOff: false,
-  creatorOnly: true,
-  superiorOnly: false,
-  developerOnly: false,
-  officer: false,
-  modOnly: false,
-  userpermissions: ["SEND_MESSAGES", "VIEW_CHANNEL"],
-  botpermissions: ["ADMINISTRATOR"],
-
-  run: async (client, message, args, guild) => {
+data: new SlashCommandBuilder()
+  .setName("rules")
+  .setDescription("Send the rules embeds to a channel")
+  async execute (interaction) {
     const sName = Guild.name;
-    const rulesSecOne_Embed = new MessageEmbed()
-      .setColor("GREEN")
+    const rulesSecOne_Embed = new EmbedBuilder()
+      .setColor(Colors.Green)
       .setTitle(`Discord's Rules`)
       .setDescription(`***Section 1***`)
       .addFields(
@@ -61,8 +49,8 @@ module.exports = {
             "Any Other rules will be posted within our Discord. Remember to check regularly.",
         }
       );
-    const rulesSecTwo_Embed = new MessageEmbed()
-      .setColor("AQUA")
+    const rulesSecTwo_Embed = new EmbedBuilder()
+      .setColor(Colors.Blue)
       .setTitle(`Discord's Rules`)
       .setDescription(`***Section Two***`)
       .addFields(
@@ -84,7 +72,7 @@ module.exports = {
         {
           name: "9. General rules of thumb.",
           value:
-            "- This applies to both text and voice channels.\n- Leaking information that is considered classified or prohibited.\n- Intentionally sharing stolen content of HLRP’s development is strictly prohibited.\n- Evasion of punishment and blatant disregard for moderation warnings.\n- Committing any illegal activity that would be considered breaking the law.\nSpoilers for any movie/tv show/game, etc must use the spoiler tag and be clearly labeled as a spoiler.\n- This applies to both text and voice channels.\n- Since the release of content, our policy is . . .\n0 to 3 months -- Prohibited, do not post.\n3 to 12 months -- You can post, but you must mark it as a spoiler and state what media you are spoiling.\n12 months or more -- You may spoil, but it is courteous to give a fair warning beforehand\nExample of a properly marked spoiler.\n\n“Halo Reach spoiler: ||Kat dies||”",
+            "- This applies to both text and voice channels.\n- Leaking information that is considered classified or prohibited.\n- Intentionally sharing stolen content of anyones development is strictly prohibited.\n- Evasion of punishment and blatant disregard for moderation warnings.\n- Committing any illegal activity that would be considered breaking the law.\nSpoilers for any movie/tv show/game, etc must use the spoiler tag and be clearly labeled as a spoiler.\n- This applies to both text and voice channels.\n- Since the release of content, our policy is . . .\n0 to 3 months -- Prohibited, do not post.\n3 to 12 months -- You can post, but you must mark it as a spoiler and state what media you are spoiling.\n12 months or more -- You may spoil, but it is courteous to give a fair warning beforehand\nExample of a properly marked spoiler.\n\n“Halo Reach spoiler: ||Kat dies||”",
         },
         {
           name: "10. Please be courteous when you ping users.",
@@ -92,8 +80,8 @@ module.exports = {
             "- Pinging a user for no reason when that user has asked you not to do so is prohibited.\n- Pinging a Mod+ without a good reason will result in a mute, warn, or both.\n- Pinging Managers+ without permission will lead to a mute.\n- Ping spamming will result in an immediate ban.",
         }
       );
-    const rulesMiscellaneous_Embed = new MessageEmbed()
-      .setColor("DARK_RED")
+    const rulesMiscellaneous_Embed = new EmbedBuilder()
+      .setColor(Colors.Red)
       .setTitle(`Miscellaneous Information`)
       .setDescription(
         `The typical moderation tree progresses as such: mute -> warn (x3) -> ban.\nSteps may be skipped based on the severity of the infraction.`
@@ -107,7 +95,7 @@ module.exports = {
       .setFooter({ text: "Hosted by KiraHQ" });
 
     (
-      await message.channel.send( {
+      await interaction.channel.send( {
           embeds: [
             rulesSecOne_Embed,
             rulesSecTwo_Embed,
@@ -116,6 +104,6 @@ module.exports = {
         }
       )
     ).react(tick);
-    message.channel.send(`@everyone ***PLEASE READ THE ABOVE EMBEDS.***`);
+    interaction.channel.send(`@everyone ***Please read the above embeds and react to the emoji when you understand the rules.***`);
   },
 };
